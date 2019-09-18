@@ -155,7 +155,7 @@ class _InvoicesScreenState extends State<InvoicesScreen>
 
       String address = qrData["address"];
       String invoiceId = qrData["invoiceId"];
-      double amount = qrData["invoiceId"];
+      dynamic amount = qrData["amount"];
       int currencyCode = qrData["currencyCode"];
 
       print(address);
@@ -170,7 +170,7 @@ class _InvoicesScreenState extends State<InvoicesScreen>
 
         String address = qrData["address"];
         String invoiceId = qrData["invoiceId"];
-        double amount = qrData["invoiceId"];
+        dynamic amount = qrData["amount"];
         int currencyCode = qrData["currencyCode"];
 
         showModalBottomSheet(
@@ -192,13 +192,16 @@ class _InvoicesScreenState extends State<InvoicesScreen>
 //        setState(() {
 //          this.barcode = 'The user did not grant the camera permission!';
 //        });
+
       } else {
 //        setState(() => this.barcode = 'Unknown error: $e');
+        print("OSHIBKA :: ${e}");
       }
     } on FormatException {
 //      setState(() => this.barcode =
 //          'null (User returned using the "back"-button before scanning anything. Result)');
     } catch (e) {
+      print("OSHIBKA :: ${e}");
 //      setState(() => this.barcode = 'Unknown error: $e');
     }
   }
